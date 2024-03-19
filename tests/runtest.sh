@@ -5,7 +5,7 @@ command=$2
 case $tno in
     1)
     echo "test $ sign with empty input"
-    bash test_input.sh $tno.txt "" "$"
+    bash test.sh $tno.txt "" "$"
     ;;
     2)
     echo "test $ sign with line feed"
