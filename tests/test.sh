@@ -1,10 +1,12 @@
 #!/bin/bash
-# Guncellenecek
-
-echo "Running tests..."
+echo "Running test: with the given input..."
 echo
 make all
-echo  "exit" | ./myshell > out.txt &
+outfile=$1
+myshellargs=$2
+expected=$3
+
+echo  $myshellargs | ./myshell > $outfile &
 sleep 0.5
 
 if [ $? -eq 0 ] ; then
@@ -14,20 +16,19 @@ else
   exit 1
 fi
 
-actual=$(cat out.txt | tr -d '\n')
+actual=$(cat $outfile | tr -d '\n')
 pid=$(pgrep myshell)
-if ! $pid; then 
-  kill -9 $pid  
+if ! $pid; then
+    kill -9 $pid  
 fi
-
-expected="$"
 
 if [[ "$actual" =~ "$expected" ]] ; then
   echo "Pass: output is correct"
+  echo "$expected ->> $actual"
 else
   echo "Expected '$expected' but got: $actual"
   exit 1
 fi
 
 echo
-echo "All tests passed."
+echo "test passed!"
