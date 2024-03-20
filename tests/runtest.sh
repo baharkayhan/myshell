@@ -31,7 +31,7 @@ case $tno in
     7)
     echo "test tprog2"
     msg=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13;)
-    n=$((1 + $SRANDOM % 5))
+    n=$((2 + $SRANDOM % 10))
     nmsg=""
     for (( i=1; i<=$n; i++ ))
     do
@@ -42,7 +42,7 @@ case $tno in
     ;;
     8)
     echo "test locate:"
-    mv tprog1.sh ../newprog.sh
+    cp tprog1.sh ../newprog.sh
     msg=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13;)
     bash test.sh $tno.txt "newprog.sh $msg" $msg$msg
     ;;
