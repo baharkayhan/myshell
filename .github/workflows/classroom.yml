@@ -32,11 +32,11 @@ jobs:
         command: "(cd tests && bash runtest.sh 2 )"
         timeout: 2
         max-score: 10
-    - name: exit test
-      id: exit-test
+    - name: runtest.sh 3
+      id: runtest-sh-3
       uses: education/autograding-command-grader@v1
       with:
-        test-name: exit-test
+        test-name: runtest.sh 3
         setup-command: ''
         command: "(cd tests && bash testexit.sh )"
         timeout: 2
@@ -109,7 +109,7 @@ jobs:
       env:
         RUNTEST-SH-1_RESULTS: "${{steps.runtest-sh-1.outputs.result}}"
         RUNTEST-SH-2_RESULTS: "${{steps.runtest-sh-2.outputs.result}}"
-        RUNTEST-SH-3_RESULTS: "${{steps.runtest-sh-2.outputs.result}}"
+        RUNTEST-SH-3_RESULTS: "${{steps.runtest-sh-3.outputs.result}}"
         RUNTEST-SH-4_RESULTS: "${{steps.runtest-sh-4.outputs.result}}"
         RUNTEST-SH-5_RESULTS: "${{steps.runtest-sh-5.outputs.result}}"
         RUNTEST-SH-6_RESULTS: "${{steps.runtest-sh-6.outputs.result}}"
