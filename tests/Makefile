@@ -1,5 +1,5 @@
 
-all: clear
+all: 
 	cp ../*.c .
 	bash setup.sh
 	gcc *.c -o myshell
