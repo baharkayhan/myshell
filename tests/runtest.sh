@@ -9,7 +9,7 @@ case $tno in
     ;;
     2)
     echo "test $ sign with line feed"
-    bash test.sh $tno.txt "\n" "$"
+    bash test.sh $tno.txt "\n" "\$\$"
     ;;
     3)
     echo "test exit"
@@ -25,25 +25,26 @@ case $tno in
     ;;
     6)
     echo "test tprog1"
-    msg=`tr -dc A-Za-z0-9 </dev/urandom | head -c 13;`
+    msg=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13;)
     bash test.sh $tno.txt "./tprog1.sh $msg" $msg$msg
     ;;
     7)
     echo "test tprog2"
-    msg=`tr -dc A-Za-z0-9 </dev/urandom | head -c 13;`
-    n=`tr -dc 0-9 </dev/urandom | head -c 1;`
+    msg=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13;)
+    n=$((1 + $SRANDOM % 5))
     nmsg=""
-    for (( i=1; i<=$2; i++ ))
+    for (( i=1; i<=$n; i++ ))
     do
         nmsg=$nmsg$msg
     done
+
     bash test.sh $tno.txt "./tprog2.sh $msg $n" $nmsg
     ;;
     8)
     echo "test locate:"
-    mv tprog1.sh ../
-    msg=`tr -dc A-Za-z0-9 </dev/urandom | head -c 13;`
-    bash test.sh $tno.txt "./tprog1.sh $msg" $msg$msg
+    mv tprog1.sh ../newprog.sh
+    msg=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13;)
+    bash test.sh $tno.txt "./newprog.sh $msg" $msg$msg
     ;;
     9)
     bash test.sh $tno.txt "hofff"  "not found"

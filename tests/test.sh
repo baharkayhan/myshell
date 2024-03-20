@@ -8,9 +8,9 @@ expected=$3
 
 echo  $myshellargs | ./myshell > $outfile &
 out=$?
-sleep 0.1
+sleep 1
 if [[ $out == 0 ]] ; then
-  echo "Pass: Program exited zero"
+  echo "Program exited zero"
 else
   echo "Fail: Program did not exit zero"
   exit 1
@@ -25,10 +25,10 @@ if ! $pid; then
 fi
 
 if [[ "$actual" =~ "$expected" ]] ; then
-  echo "Pass: output is correct"
+  echo "Pass: Output is correct"
   echo "$expected ->> $actual"
 else
-  echo "Expected '$expected' but got: $actual"
+  echo "Fail: Expected '$expected' but got: $actual"
   exit 1
 fi
 
