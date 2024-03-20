@@ -42,7 +42,7 @@ case $tno in
     bash test.sh $tno.txt "./tprog1.sh $msg" $msg$msg
     ;;
     9)
-    bash test.sh $tno.txt "offf"  "not found"
+    bash test.sh $tno.txt "hofff"  "not found"
     ;;
     *)
     ;;
