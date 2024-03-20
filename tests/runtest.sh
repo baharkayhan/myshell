@@ -16,16 +16,20 @@ case $tno in
     bash testexit.sh
     ;;
     4)
+    echo "test ls shell"
     bash test.sh $tno.txt "ls  myshell" "myshell"
     ;;
     5)
+    echo "test ls she../README*"
     bash test.sh $tno.txt "ls  ../README*" "README"
     ;;
     6)
+    echo "test tprog1"
     msg=`tr -dc A-Za-z0-9 </dev/urandom | head -c 13;`
     bash test.sh $tno.txt "./tprog1.sh $msg" $msg$msg
     ;;
     7)
+    echo "test tprog2"
     msg=`tr -dc A-Za-z0-9 </dev/urandom | head -c 13;`
     n=`tr -dc 0-9 </dev/urandom | head -c 1;`
     nmsg=""
