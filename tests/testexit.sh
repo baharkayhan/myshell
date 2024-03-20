@@ -4,8 +4,13 @@ echo
 make all
 ./myshell > 11.txt &
 pid=$(pgrep myshell)
-echo  "exit" | > /proc/$pid/fd/0
-sleep 0.5
+if $pid;then
+  echo  "exit" | > /proc/$pid/fd/0
+  sleep 0.5
+else
+  echo "Fail: exit test failed."
+  exit 1
+fi
 
 pid=$(pgrep myshell)
 if ! $pid; then 
