@@ -8,7 +8,7 @@ expected=$3
 
 echo  $myshellargs | ./myshell > $outfile &
 out=$?
-sleep 0.5
+sleep 0.1
 if [[ $out == 0 ]] ; then
   echo "Pass: Program exited zero"
 else
