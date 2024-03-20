@@ -21,6 +21,26 @@ case $tno in
     5)
     bash test.sh $tno.txt "ls  ../README*" "README"
     ;;
+    6)
+    msg=`tr -dc A-Za-z0-9 </dev/urandom | head -c 13;`
+    bash test.sh $tno.txt "./tprog1.sh $msg" $msg$msg
+    ;;
+    7)
+    msg=`tr -dc A-Za-z0-9 </dev/urandom | head -c 13;`
+    n=`tr -dc 0-9 </dev/urandom | head -c 1;`
+    nmsg=""
+    for (( i=1; i<=$2; i++ ))
+    do
+        nmsg=$nmsg$msg
+    done
+    bash test.sh $tno.txt "./tprog2.sh $msg $n" $nmsg
+    ;;
+    8)
+    echo "test locate:"
+    mv tprog1.sh ../
+    msg=`tr -dc A-Za-z0-9 </dev/urandom | head -c 13;`
+    bash test.sh $tno.txt "./tprog1.sh $msg" $msg$msg
+    ;;
     *)
     ;;
 esac

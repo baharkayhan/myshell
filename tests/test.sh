@@ -7,9 +7,9 @@ myshellargs=$2
 expected=$3
 
 echo  $myshellargs | ./myshell > $outfile &
+out=$?
 sleep 0.5
-
-if [ $? -eq 0 ] ; then
+if [[ $out == 0 ]] ; then
   echo "Pass: Program exited zero"
 else
   echo "Fail: Program did not exit zero"
@@ -18,8 +18,10 @@ fi
 
 actual=$(cat $outfile | tr -d '\n')
 pid=$(pgrep myshell)
+
 if ! $pid; then
-    kill -9 $pid  
+  echo "3"
+  kill -9 $pid  
 fi
 
 if [[ "$actual" =~ "$expected" ]] ; then
