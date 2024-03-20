@@ -40,12 +40,14 @@ case $tno in
 
     bash test.sh $tno.txt "tprog2.sh $msg $n" $nmsg
     ;;
-    8)
-    echo "test locate:"
-    cp tprog1.sh ../newprog.sh
-    msg=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13;)
-    bash test.sh $tno.txt "newprog.sh $msg" $msg$msg
-    ;;
+## writeup sadece current path aranmasi isteniyor,
+## bu test gereksiz
+#    8)
+#    echo "test locate:"
+#    cp tprog1.sh ../newprog.sh
+#    msg=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13;)
+#    bash test.sh $tno.txt "newprog.sh $msg" $msg$msg
+#    ;;
     9)
     echo "test command not found"
     bash test.sh $tno.txt "hofff"  "not found"
