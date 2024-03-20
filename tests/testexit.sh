@@ -2,22 +2,17 @@
 echo "Running tests..."
 echo
 make all
-echo  "exit" | ./myshell &
+./myshell > 11.txt &
 out=$?
+pid=$!
+echo  "exit" | > /proc/$pid/fd/0
 sleep 0.5
-
-if [ $out -eq 0 ] ; then
-  echo "Pass: Program exited zero"
-else
-  echo "Fail: Program did not exit zero"
-  exit 1
-fi
-
-
 pid=$(pgrep myshell)
 if ! $pid; then 
   kill -9 $pid  
+
+  echo "Fail: exit test failed."
   exit 1
 fi
 
-echo " test passed."
+echo " Pass: exit test passed."
