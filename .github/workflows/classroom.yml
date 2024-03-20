@@ -32,13 +32,13 @@ jobs:
         command: "(cd tests && bash runtest.sh 2 )"
         timeout: 2
         max-score: 10
-    - name: runtest.sh 3
-      id: runtest-sh-3
+    - name: exit test
+      id: exit-test
       uses: education/autograding-command-grader@v1
       with:
-        test-name: runtest.sh 3
+        test-name: exit-test
         setup-command: ''
-        command: "(cd tests && bash runtest.sh 3 )"
+        command: "(cd tests && bash testexit.sh )"
         timeout: 2
         max-score: 15
     - name: runtest.sh 4
