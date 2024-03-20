@@ -41,6 +41,9 @@ case $tno in
     msg=`tr -dc A-Za-z0-9 </dev/urandom | head -c 13;`
     bash test.sh $tno.txt "./tprog1.sh $msg" $msg$msg
     ;;
+    9)
+    bash test.sh $tno.txt "offf"  "not found"
+    ;;
     *)
     ;;
 esac
