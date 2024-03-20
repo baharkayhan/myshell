@@ -47,7 +47,12 @@ case $tno in
     bash test.sh $tno.txt "newprog.sh $msg" $msg$msg
     ;;
     9)
+    echo "test command not found"
     bash test.sh $tno.txt "hofff"  "not found"
+    ;;
+    10)
+    echo "test log.txt"
+    bash testlog.sh
     ;;
     *)
     ;;
