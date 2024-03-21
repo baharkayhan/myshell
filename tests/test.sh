@@ -6,7 +6,7 @@ outfile=$1
 myshellargs=$2
 expected=$3
 
-echo  $myshellargs | ./myshell > $outfile &
+printf "$myshellargs\n" | ./myshell > $outfile &
 out=$?
 sleep 1
 if [[ $out == 0 ]] ; then
