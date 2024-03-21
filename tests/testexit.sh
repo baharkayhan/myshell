@@ -4,7 +4,7 @@ echo
 make all
 ./myshell > 11.txt &
 pid=$(pgrep myshell)
-if $pid; then
+if [[ $pid > 0 ]] ; then
   echo  "exit" > /proc/$pid/fd/0
   sleep 0.5
 else
