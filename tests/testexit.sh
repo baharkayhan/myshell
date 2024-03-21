@@ -5,7 +5,7 @@ make all
 ./myshell > 11.txt &
 pid=$(pgrep myshell)
 if $pid; then
-  echo  "exit" | > /proc/$pid/fd/0
+  echo  "exit" > /proc/$pid/fd/0
   sleep 0.5
 else
   echo "Fail: exit test failed."
