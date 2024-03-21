@@ -1,0 +1,5 @@
+tests/*.txt
+tests/*.c
+*.txt
+*.c
+myshell
