@@ -1,10 +1,12 @@
 #!/bin/bash
 echo "Running tests..."
+echo
 make all
 printf "%s\n" "exit" | ./myshell > 11.txt &
-sleep 1
 
 pid=$(pgrep myshell)
+
+
 if [[ $pid > 0 ]]; then 
   kill -9 $pid 
   echo "Fail: exit test failed."
