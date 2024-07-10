@@ -83,7 +83,6 @@ void komut_calistir(char *komut) {
         }
                   
         /* "whereis" komutu girilmesi durumu */
-	/* whereis komutu icin stackoverflowdan destek alindi */
         if (strstr(komut, "whereis ") == komut) {
             char *yol = komut_yolunu_bul(komut + strlen("whereis "));
             if (yol != NULL) {
@@ -186,7 +185,6 @@ void komut_kaydet(char *komut) {
     }
 
     /* Zaman bilgisi al */
-    /* Zaman ayarlamasi icin chatgptden yardim alindi */ 
     struct timeval zaman;
     gettimeofday(&zaman, NULL);
     long milisaniye = zaman.tv_usec / 1000;
