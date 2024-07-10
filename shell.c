@@ -1,8 +1,8 @@
 /* 
  * File: shell.c
- * Authors: Bahar Kayhan, Beyza Nur Caglar
- * Date: 31 Mart 2024
- * Description: Bu dosya bir shell ornegidir. 
+ * Author:baharkayhan
+ * Date: 31 March 2024
+ * Description: shell example 
  */
 
 #include <stdio.h>
